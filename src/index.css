@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/* Dark mode follows the `dark` class on <html> (set in index.html + Navbar toggle) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand scale built around the original portfolio purple (#535da1) */
+  --color-brand-50: #f1f2fa;
+  --color-brand-100: #e3e5f4;
+  --color-brand-200: #c8ccea;
+  --color-brand-300: #a3a9d9;
+  --color-brand-400: #7b83c4;
+  --color-brand-500: #535da1;
+  --color-brand-600: #454e8a;
+  --color-brand-700: #384071;
+  --color-brand-800: #2b3157;
+  --color-brand-900: #1e2340;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-slate-600 antialiased dark:bg-slate-950 dark:text-slate-400;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Lock page scroll while the project lightbox is open */
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }
+}
+
+/* Fade/slide in on scroll. Pure CSS; browsers without scroll-driven animations just show the content. */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    translate: 0 2rem;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
