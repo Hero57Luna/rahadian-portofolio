@@ -9,7 +9,7 @@ import reactNative from './assets/react-native.webp'
 import symfony from './assets/symfony.svg'
 import yii2 from './assets/yii2.webp'
 
-const shots = import.meta.glob('./assets/{fambus,refview,wedding,sipena,meetings}/*.webp', { eager: true, import: 'default' })
+const shots = import.meta.glob('./assets/{fambus,refview,wedding,sipena,meetings,chatbot}/*.webp', { eager: true, import: 'default' })
 const screenshot = (project) => (name, title, tag) => ({
   title,
   tag,
@@ -21,6 +21,7 @@ const refviewImage = screenshot('refview')
 const weddingImage = screenshot('wedding')
 const sipenaImage = screenshot('sipena')
 const meetingsImage = screenshot('meetings')
+const chatbotImage = screenshot('chatbot')
 
 export const profile = {
   name: 'Rahadian Bagaskara',
@@ -181,6 +182,20 @@ export const projects = [
       meetingsImage('admin-layout', 'Layout setting', 'Admin Panel'),
       meetingsImage('admin-mixerbot', 'Mixerbot', 'Admin Panel'),
       meetingsImage('admin-recording', 'Download recording', 'Admin Panel'),
+    ],
+  },
+  {
+    title: 'Widget Chatbot',
+    tags: ['Preact', 'MySQL', 'Java', 'ReactJS'],
+    thumb: shots['./assets/chatbot/open-thumb.webp'],
+    description:
+      "An AI chatbot widget that companies embed on their website so visitors can easily get information about the company's products. When a visitor is logged in to their company account, the widget can also pull up their personal account information. It opens with a skeleton loading screen, offers quick service menus and suggested questions, and answers free-form questions with formatted replies.",
+    note: 'The project also has an admin dashboard, which is not shown for security reasons. The client name in the screenshots is blurred.',
+    images: [
+      chatbotImage('closed', 'Widget closed', 'Widget'),
+      chatbotImage('loading', 'Skeleton loading', 'Widget'),
+      chatbotImage('open', 'Widget opened', 'Widget'),
+      chatbotImage('answer', 'AI answer', 'Widget'),
     ],
   },
 ]
