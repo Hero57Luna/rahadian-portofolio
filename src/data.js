@@ -112,7 +112,7 @@ export const projects = [
     tags: ['ReactJS', 'Firebase'],
     thumb: shots['./assets/wedding-cover-thumb.webp'],
     description:
-      'A newspaper-styled digital wedding invitation for my own wedding. Each guest gets a personalized link that greets them by name, and the invitation includes a countdown, event details with map links, our love story, a photo gallery, wedding gift info, background music, an English/Indonesian toggle, and a wishes & RSVP form stored in Firebase.',
+      'A newspaper-styled digital wedding invitation for my own wedding. Each guest gets a personalized link that greets them by name, and the invitation includes a countdown, event details with map links, our love story, a photo gallery, wedding gift info, background music, an English/Indonesian toggle, and a wishes & RSVP form stored in Firebase. A separate admin dashboard manages the guest list, with CSV import, XLSX export and bulk updates, and tracks live check-in attendance at the venue.',
     links: [['Wedding Invitation', 'https://weddingofbagasdhela.com/?ref=4HH0VkBI7SHTuMXFpr9j']],
     images: [
       weddingImage('cover', 'Cover', 'Opening'),
@@ -126,6 +126,11 @@ export const projects = [
       weddingImage('gift', 'Wedding gift', 'Invitation'),
       weddingImage('wishes', 'Wishes & RSVP', 'Invitation'),
       weddingImage('thank-you', 'Thank you', 'Invitation'),
+      weddingImage('dashboard-home', 'Attendance overview', 'Admin Dashboard'),
+      weddingImage('dashboard-guest', 'Guest list', 'Admin Dashboard'),
+      weddingImage('dashboard-import', 'Import guests', 'Admin Dashboard'),
+      weddingImage('dashboard-export', 'Export guests', 'Admin Dashboard'),
+      weddingImage('dashboard-bulk', 'Bulk update', 'Admin Dashboard'),
     ],
   },
 ]
