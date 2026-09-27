@@ -9,7 +9,7 @@ import reactNative from './assets/react-native.webp'
 import symfony from './assets/symfony.svg'
 import yii2 from './assets/yii2.webp'
 
-const shots = import.meta.glob('./assets/{fambus,refview,wedding}/*.webp', { eager: true, import: 'default' })
+const shots = import.meta.glob('./assets/{fambus,refview,wedding,sipena}/*.webp', { eager: true, import: 'default' })
 const screenshot = (project) => (name, title, tag) => ({
   title,
   tag,
@@ -19,6 +19,7 @@ const screenshot = (project) => (name, title, tag) => ({
 const fambusImage = screenshot('fambus')
 const refviewImage = screenshot('refview')
 const weddingImage = screenshot('wedding')
+const sipenaImage = screenshot('sipena')
 
 export const profile = {
   name: 'Rahadian Bagaskara',
@@ -128,6 +129,34 @@ export const projects = [
       weddingImage('dashboard-import', 'Import guests', 'Admin Dashboard'),
       weddingImage('dashboard-export', 'Export guests', 'Admin Dashboard'),
       weddingImage('dashboard-bulk', 'Bulk update', 'Admin Dashboard'),
+    ],
+  },
+  {
+    title: 'SiPena4 Exam System',
+    tags: ['PHP', 'CodeIgniter', 'MySQL'],
+    thumb: shots['./assets/sipena/ujian-thumb.webp'],
+    description:
+      'A computer-based test (CBT) system for SMPN 4 Kota Probolinggo. Teachers and admins manage students, proctors, classes, subjects and rooms, build a question bank by importing from Word or Excel, schedule exams with tokens and randomized questions, and print attendance lists and student login cards. Students sign in to a portal to see their exam schedule, enter an exam with its token, and check their status.',
+    note: 'SiPena4 runs on the school’s internal network, so it is not publicly accessible. Names and personal data in the screenshots are blurred.',
+    images: [
+      sipenaImage('beranda', 'Dashboard', 'Admin View'),
+      sipenaImage('lembaga', 'School profile & exam settings', 'Admin View'),
+      sipenaImage('siswa', 'Students', 'Admin View'),
+      sipenaImage('soal', 'Question bank', 'Admin View'),
+      sipenaImage('impor-word', 'Import questions from Word', 'Admin View'),
+      sipenaImage('impor-excel', 'Import questions from Excel', 'Admin View'),
+      sipenaImage('jurusan', 'Programs', 'Admin View'),
+      sipenaImage('kelas', 'Classes', 'Admin View'),
+      sipenaImage('mapel', 'Subjects', 'Admin View'),
+      sipenaImage('ruang', 'Room assignment', 'Admin View'),
+      sipenaImage('proktor', 'Proctors', 'Admin View'),
+      sipenaImage('ujian', 'Exams', 'Admin View'),
+      sipenaImage('daftar-hadir', 'Rooms & attendance lists', 'Admin View'),
+      sipenaImage('kartu-ujian', 'Student login cards', 'Admin View'),
+      sipenaImage('siswa-beranda', 'Dashboard', 'Student View'),
+      sipenaImage('siswa-ujian', 'My exams', 'Student View'),
+      sipenaImage('siswa-token', 'Exam token', 'Student View'),
+      sipenaImage('siswa-hasil', 'Exam status', 'Student View'),
     ],
   },
 ]

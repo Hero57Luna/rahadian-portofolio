@@ -45,20 +45,22 @@ export default function ProjectModal({ project: { title, tags, description, note
             <p className="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:bg-amber-400/10 dark:text-amber-300">{note}</p>
           )}
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            {links.map(([label, href]) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-600"
-              >
-                {label}
-                <ExternalLink className="size-4" />
-              </a>
-            ))}
-          </div>
+          {links && (
+            <div className="mt-6 flex flex-wrap gap-3">
+              {links.map(([label, href]) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-600"
+                >
+                  {label}
+                  <ExternalLink className="size-4" />
+                </a>
+              ))}
+            </div>
+          )}
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {images.map(({ title, thumb }, i) => (
