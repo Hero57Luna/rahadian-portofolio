@@ -9,7 +9,7 @@ import reactNative from './assets/react-native.webp'
 import symfony from './assets/symfony.svg'
 import yii2 from './assets/yii2.webp'
 
-const shots = import.meta.glob('./assets/{fambus,refview,wedding,sipena}/*.webp', { eager: true, import: 'default' })
+const shots = import.meta.glob('./assets/{fambus,refview,wedding,sipena,meetings}/*.webp', { eager: true, import: 'default' })
 const screenshot = (project) => (name, title, tag) => ({
   title,
   tag,
@@ -20,6 +20,7 @@ const fambusImage = screenshot('fambus')
 const refviewImage = screenshot('refview')
 const weddingImage = screenshot('wedding')
 const sipenaImage = screenshot('sipena')
+const meetingsImage = screenshot('meetings')
 
 export const profile = {
   name: 'Rahadian Bagaskara',
@@ -157,6 +158,29 @@ export const projects = [
       sipenaImage('siswa-ujian', 'My exams', 'Student View'),
       sipenaImage('siswa-token', 'Exam token', 'Student View'),
       sipenaImage('siswa-hasil', 'Exam status', 'Student View'),
+    ],
+  },
+  {
+    title: 'Meetings',
+    tags: ['ReactJS', 'Golang', 'Postgres', 'Redis', 'Docker'],
+    thumb: shots['./assets/meetings/sidebar-chat-thumb.webp'],
+    description:
+      'A video conferencing platform built for large online events. Each conference has a stage room for presenters and moderators, while viewers are spread across sharded audience rooms that can be recorded. In the meeting room, participants get public chat, a user list with a waiting room, hand raising, reactions, screen sharing, polls, captions and switchable layouts. Audience members watch the stage from a view-only room with a live viewer count, chat messages that float over the stream, reactions, and volume and zoom controls. An admin panel is used to create and join conferences, change the layout of live meetings, manage the Mixerbot bot for live meetings, and download recordings.',
+    note: 'Meetings is an internal project, so its real name is not shown and product names in the screenshots are blurred.',
+    images: [
+      meetingsImage('main', 'Meeting room', 'Meeting Room'),
+      meetingsImage('sidebar-user', 'User list', 'Meeting Room'),
+      meetingsImage('sidebar-chat', 'Public chat', 'Meeting Room'),
+      meetingsImage('sidebar-panel', 'Layout & settings panel', 'Meeting Room'),
+      meetingsImage('audience-standby', 'Audience room', 'Audience Room'),
+      meetingsImage('audience-open-action', 'Audience controls', 'Audience Room'),
+      meetingsImage('audience-send-chat', 'Audience chat', 'Audience Room'),
+      meetingsImage('audience-chat-received', 'Chat overlay', 'Audience Room'),
+      meetingsImage('admin-create', 'Create conference', 'Admin Panel'),
+      meetingsImage('admin-join', 'Join meeting', 'Admin Panel'),
+      meetingsImage('admin-layout', 'Layout setting', 'Admin Panel'),
+      meetingsImage('admin-mixerbot', 'Mixerbot', 'Admin Panel'),
+      meetingsImage('admin-recording', 'Download recording', 'Admin Panel'),
     ],
   },
 ]
