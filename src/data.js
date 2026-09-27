@@ -1,7 +1,3 @@
-import fambusAdmin from './assets/fambus-admin.webp'
-import fambusAdminThumb from './assets/fambus-admin-thumb.webp'
-import fambusApp from './assets/fambus-app.webp'
-import fambusAppThumb from './assets/fambus-app-thumb.webp'
 import laravel from './assets/laravel.webp'
 import me from './assets/me.webp'
 import mongodb from './assets/mongodb.svg'
@@ -13,13 +9,14 @@ import reactNative from './assets/react-native.webp'
 import symfony from './assets/symfony.svg'
 import yii2 from './assets/yii2.webp'
 
-const shots = import.meta.glob('./assets/{refview,wedding}-*.webp', { eager: true, import: 'default' })
-const screenshot = (prefix) => (name, title, tag) => ({
+const shots = import.meta.glob('./assets/{fambus,refview,wedding}/*.webp', { eager: true, import: 'default' })
+const screenshot = (project) => (name, title, tag) => ({
   title,
   tag,
-  thumb: shots[`./assets/${prefix}-${name}-thumb.webp`],
-  image: shots[`./assets/${prefix}-${name}.webp`],
+  thumb: shots[`./assets/${project}/${name}-thumb.webp`],
+  image: shots[`./assets/${project}/${name}.webp`],
 })
+const fambusImage = screenshot('fambus')
 const refviewImage = screenshot('refview')
 const weddingImage = screenshot('wedding')
 
@@ -70,7 +67,7 @@ export const projects = [
   {
     title: 'Fambus App',
     tags: ['React Native', 'Laravel'],
-    thumb: fambusAppThumb,
+    thumb: shots['./assets/fambus/app-thumb.webp'],
     description:
       'A mobile app built with React Native and published on Google Play, backed by a Laravel admin dashboard that manages its content and data.',
     links: [
@@ -78,14 +75,14 @@ export const projects = [
       ['Admin Dashboard', 'https://fambus-admin.herokuapp.com/'],
     ],
     images: [
-      { title: 'Mobile app', tag: 'React Native', thumb: fambusAppThumb, image: fambusApp },
-      { title: 'Admin dashboard', tag: 'Laravel', thumb: fambusAdminThumb, image: fambusAdmin },
+      fambusImage('app', 'Mobile app', 'React Native'),
+      fambusImage('admin', 'Admin dashboard', 'Laravel'),
     ],
   },
   {
     title: 'RefView',
     tags: ['Symfony', 'MySQL', 'JavaScript', 'CSS', 'MongoDB'],
-    thumb: shots['./assets/refview-home-thumb.webp'],
+    thumb: shots['./assets/refview/home-thumb.webp'],
     description:
       'A dedicated site for sports officials and assigners by rSchoolToday, integrated with its Activity Scheduler. Officials manage their schedule, sign contracts, set availability and track payments, while assigners assign officials to games, reassign them and send contracts.',
     note: 'RefView has since changed ownership, so the site is no longer accessible.',
@@ -110,7 +107,7 @@ export const projects = [
   {
     title: 'Wedding Invitation',
     tags: ['ReactJS', 'Firebase'],
-    thumb: shots['./assets/wedding-cover-thumb.webp'],
+    thumb: shots['./assets/wedding/cover-thumb.webp'],
     description:
       'A newspaper-styled digital wedding invitation for my own wedding. Each guest gets a personalized link that greets them by name, and the invitation includes a countdown, event details with map links, our love story, a photo gallery, wedding gift info, background music, an English/Indonesian toggle, and a wishes & RSVP form stored in Firebase. A separate admin dashboard manages the guest list, with CSV import, XLSX export and bulk updates, and tracks live check-in attendance at the venue.',
     links: [['Wedding Invitation', 'https://weddingofbagasdhela.com/?ref=4HH0VkBI7SHTuMXFpr9j']],

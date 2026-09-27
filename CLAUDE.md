@@ -17,7 +17,7 @@ There is no test suite.
 
 Single-page React 19 + Vite portfolio site, styled with Tailwind CSS v4 (via `@tailwindcss/vite`, no `tailwind.config.js` — theme tokens live in `src/index.css` under `@theme`). Migrated from a Laravel version (`portfolio-app`).
 
-**Content lives in one place: `src/data.js`.** Profile info, about text, services, and project data (including image imports) are all exported as plain objects/arrays from this file. Components import from `data.js` and map over it — they contain no hardcoded content. When asked to change visible text, tags, links, or add/remove a project or service, edit `data.js`, not the components. Project screenshots go in `src/assets/`; `refview-*` project images are loaded in bulk via `import.meta.glob`.
+**Content lives in one place: `src/data.js`.** Profile info, about text, services, and project data (including image imports) are all exported as plain objects/arrays from this file. Components import from `data.js` and map over it — they contain no hardcoded content. When asked to change visible text, tags, links, or add/remove a project or service, edit `data.js`, not the components. Project screenshots go in a per-project folder (`src/assets/<project>/<name>.webp` plus `<name>-thumb.webp`) and are loaded in bulk via `import.meta.glob` in `data.js`; add a new project's folder to that glob pattern.
 
 `App.jsx` composes the page as a fixed sequence of top-level sections (Navbar, Hero, About, Services, Projects, Contact, Footer), each anchored by id for the nav (`nav` array in `data.js`) and an `IntersectionObserver`-based active-link highlight in `Navbar.jsx`.
 
