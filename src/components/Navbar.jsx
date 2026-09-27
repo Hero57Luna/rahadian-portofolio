@@ -65,7 +65,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-1">
           <a
-            href={`tel:${profile.phoneHref}`}
+            href={profile.phoneHref} target="_blank" rel="noopener noreferrer"
             className="mr-2 hidden items-center gap-2 rounded-full bg-brand-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-600 lg:inline-flex"
           >
             <Phone className="size-4" /> {profile.phone}
@@ -95,7 +95,7 @@ export default function Navbar() {
           ))}
           <li className="mt-2">
             <a
-              href={`tel:${profile.phoneHref}`}
+              href={profile.phoneHref} target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-full bg-brand-500 px-4 py-2 text-sm font-medium text-white"
             >
               <Phone className="size-4" /> {profile.phone}

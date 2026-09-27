@@ -30,7 +30,7 @@ export const profile = {
   careerStart: 'August 1, 2021',
   email: 'rahadianadikusuma@gmail.com',
   phone: '+62 823-3579-0073',
-  phoneHref: '+6282335790073',
+  phoneHref: 'https://wa.me/6282335790073',
   photo: me,
 }
 
@@ -49,9 +49,7 @@ const yearsSince = (date, now = new Date()) => {
 }
 
 export const about = [
-  `My name is Bagas and I am ${yearsSince(profile.birthday)} years old. I've been working as a programmer at Arkana Teknologi Indonesia for about a year now. Also currently I am working as a part-time coding instructor at Timedoor Academy`,
-  'I was graduated from Polytechnic State of Malang, with a degree for applied computer science. After graduated on August 2021, I immediately got a job offer from Arkana Teknologi Indonesia and this is where I learned so much about programming in the real world',
-  'Moving forward, I hope to expand my experience across different companies and different development.',
+  'Software Engineer with experience building scalable web applications, backend systems, and user-facing features. Skilled in designing and integrating APIs, working with relational and NoSQL databases, improving application performance, and implementing authentication and real-time communication workflows. Experienced in collaborating with cross-functional and distributed teams, translating product requirements into reliable technical solutions, and supporting development from implementation through deployment. Strong problem-solving skills, attention to detail, and a practical approach to building maintainable software.',
 ]
 
 export const services = [

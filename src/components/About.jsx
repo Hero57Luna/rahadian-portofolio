@@ -8,7 +8,7 @@ export default function About() {
   const info = [
     ['Name', profile.fullName],
     ['Birthday', profile.birthday],
-    ['Phone', <a key="tel" href={`tel:${profile.phoneHref}`} className={link}>{profile.phone}</a>],
+    ['Phone', <a key="tel" href={profile.phoneHref} target="_blank" rel="noopener noreferrer" className={link}>{profile.phone}</a>],
     ['Email', <a key="mail" href={`mailto:${profile.email}`} className={link}>{profile.email}</a>],
   ]
 

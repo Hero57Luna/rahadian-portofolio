@@ -6,7 +6,7 @@ const card = 'rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:bo
 
 const contacts = [
   [Mail, 'Email', profile.email, `mailto:${profile.email}`],
-  [Phone, 'Call', profile.phone, `tel:${profile.phoneHref}`],
+  [Phone, 'WhatsApp', profile.phone, profile.phoneHref],
 ]
 
 // No backend: hand the message to the visitor's email app.
@@ -24,7 +24,7 @@ export default function Contact() {
         <ul className="reveal space-y-4">
           {contacts.map(([Icon, label, value, href]) => (
             <li key={label}>
-              <a href={href} className={`${card} flex items-center gap-4 transition hover:border-brand-300 dark:hover:border-brand-400/50`}>
+              <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className={`${card} flex items-center gap-4 transition hover:border-brand-300 dark:hover:border-brand-400/50`}>
                 <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-brand-50 text-brand-600 dark:bg-white/10 dark:text-brand-300">
                   <Icon className="size-5" />
                 </span>
