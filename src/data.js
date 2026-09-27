@@ -13,6 +13,14 @@ import reactNative from './assets/react-native.webp'
 import symfony from './assets/symfony.svg'
 import yii2 from './assets/yii2.webp'
 
+const refview = import.meta.glob('./assets/refview-*.webp', { eager: true, import: 'default' })
+const refviewImage = (name, title, tag) => ({
+  title,
+  tag,
+  thumb: refview[`./assets/refview-${name}-thumb.webp`],
+  image: refview[`./assets/refview-${name}.webp`],
+})
+
 export const profile = {
   name: 'Rahadian Bagaskara',
   fullName: 'Rahadian Bagaskara Adikusuma',
@@ -44,11 +52,6 @@ export const about = [
   'Moving forward, I hope to expand my experience across different companies and different development.',
 ]
 
-export const stats = [
-  [`${yearsSince(profile.careerStart)}+`, 'Years of Experience'],
-  ['4', 'Projects Finished'],
-]
-
 export const services = [
   { title: 'Laravel', logo: laravel, description: 'API and web development using Laravel framework' },
   { title: 'React Native', logo: reactNative, description: 'Mobile app development using React Native framework' },
@@ -77,4 +80,34 @@ export const projects = [
       { title: 'Admin dashboard', tag: 'Laravel', thumb: fambusAdminThumb, image: fambusAdmin },
     ],
   },
+  {
+    title: 'RefView',
+    tags: ['Symfony', 'MySQL', 'JavaScript', 'CSS', 'MongoDB'],
+    thumb: refview['./assets/refview-home-thumb.webp'],
+    description:
+      'A dedicated site for sports officials and assigners by rSchoolToday, integrated with its Activity Scheduler. Officials manage their schedule, sign contracts, set availability and track payments, while assigners assign officials to games, reassign them and send contracts.',
+    note: 'RefView has since changed ownership, so the site is no longer accessible.',
+    links: [['RefView', 'https://refview.com']],
+    images: [
+      refviewImage('login', 'Login', 'Official View'),
+      refviewImage('home', 'Home', 'Official View'),
+      refviewImage('personal-info', 'Personal info', 'Official View'),
+      refviewImage('certifications', 'Sports & certifications', 'Official View'),
+      refviewImage('schedule', 'My schedule', 'Official View'),
+      refviewImage('contracts', 'Contracts', 'Official View'),
+      refviewImage('contract', 'Contract document', 'Official View'),
+      refviewImage('self-select', 'Self select', 'Official View'),
+      refviewImage('availability', 'My availability', 'Official View'),
+      refviewImage('directory', 'Directory', 'Official View'),
+      refviewImage('payment', 'Payment', 'Official View'),
+      refviewImage('games', 'Assign by game', 'Assigner View'),
+      refviewImage('selected-officials', 'Reassign officials', 'Assigner View'),
+      refviewImage('send-contract', 'Send contract', 'Assigner View'),
+    ],
+  },
+]
+
+export const stats = [
+  [`${yearsSince(profile.careerStart)}+`, 'Years of Experience'],
+  [String(projects.length), 'Projects Finished'],
 ]

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import Lightbox from './Lightbox'
 
 // Native <dialog> like Lightbox: backdrop, focus trap and Esc-to-close for free.
-export default function ProjectModal({ project: { title, tags, description, links, images }, onClose }) {
+export default function ProjectModal({ project: { title, tags, description, note, links, images }, onClose }) {
   const ref = useRef(null)
   const [zoom, setZoom] = useState(null)
 
@@ -41,6 +41,9 @@ export default function ProjectModal({ project: { title, tags, description, link
           </div>
 
           <p className="mt-4 leading-relaxed">{description}</p>
+          {note && (
+            <p className="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:bg-amber-400/10 dark:text-amber-300">{note}</p>
+          )}
 
           <div className="mt-6 flex flex-wrap gap-3">
             {links.map(([label, href]) => (
