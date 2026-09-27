@@ -13,13 +13,15 @@ import reactNative from './assets/react-native.webp'
 import symfony from './assets/symfony.svg'
 import yii2 from './assets/yii2.webp'
 
-const refview = import.meta.glob('./assets/refview-*.webp', { eager: true, import: 'default' })
-const refviewImage = (name, title, tag) => ({
+const shots = import.meta.glob('./assets/{refview,wedding}-*.webp', { eager: true, import: 'default' })
+const screenshot = (prefix) => (name, title, tag) => ({
   title,
   tag,
-  thumb: refview[`./assets/refview-${name}-thumb.webp`],
-  image: refview[`./assets/refview-${name}.webp`],
+  thumb: shots[`./assets/${prefix}-${name}-thumb.webp`],
+  image: shots[`./assets/${prefix}-${name}.webp`],
 })
+const refviewImage = screenshot('refview')
+const weddingImage = screenshot('wedding')
 
 export const profile = {
   name: 'Rahadian Bagaskara',
@@ -83,7 +85,7 @@ export const projects = [
   {
     title: 'RefView',
     tags: ['Symfony', 'MySQL', 'JavaScript', 'CSS', 'MongoDB'],
-    thumb: refview['./assets/refview-home-thumb.webp'],
+    thumb: shots['./assets/refview-home-thumb.webp'],
     description:
       'A dedicated site for sports officials and assigners by rSchoolToday, integrated with its Activity Scheduler. Officials manage their schedule, sign contracts, set availability and track payments, while assigners assign officials to games, reassign them and send contracts.',
     note: 'RefView has since changed ownership, so the site is no longer accessible.',
@@ -103,6 +105,27 @@ export const projects = [
       refviewImage('games', 'Assign by game', 'Assigner View'),
       refviewImage('selected-officials', 'Reassign officials', 'Assigner View'),
       refviewImage('send-contract', 'Send contract', 'Assigner View'),
+    ],
+  },
+  {
+    title: 'Wedding Invitation',
+    tags: ['ReactJS', 'Firebase'],
+    thumb: shots['./assets/wedding-cover-thumb.webp'],
+    description:
+      'A newspaper-styled digital wedding invitation for my own wedding. Each guest gets a personalized link that greets them by name, and the invitation includes a countdown, event details with map links, our love story, a photo gallery, wedding gift info, background music, an English/Indonesian toggle, and a wishes & RSVP form stored in Firebase.',
+    links: [['Wedding Invitation', 'https://weddingofbagasdhela.com/?ref=4HH0VkBI7SHTuMXFpr9j']],
+    images: [
+      weddingImage('cover', 'Cover', 'Opening'),
+      weddingImage('invitation', 'Our wedding day', 'Invitation'),
+      weddingImage('groom', 'The groom', 'Invitation'),
+      weddingImage('bride', 'The bride', 'Invitation'),
+      weddingImage('countdown', 'Countdown', 'Invitation'),
+      weddingImage('details', 'Wedding details', 'Invitation'),
+      weddingImage('love-story', 'Love story', 'Invitation'),
+      weddingImage('moments', 'Our moments', 'Invitation'),
+      weddingImage('gift', 'Wedding gift', 'Invitation'),
+      weddingImage('wishes', 'Wishes & RSVP', 'Invitation'),
+      weddingImage('thank-you', 'Thank you', 'Invitation'),
     ],
   },
 ]
